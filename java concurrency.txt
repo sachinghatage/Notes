@@ -1,0 +1,54 @@
+1.Difference between callable and Runnable interface?
+   Runnable doesnot return any value,also doesnot throw exception,must surround with try catch block.
+   Callable return future object and throws exception,no need to use try catch as throws is used.
+
+2.java.util.concurrent.executor released with jdk 5
+
+3.Some types of java executors
+   SingleThreadExecutor
+   FixedThreadPool
+   CachedThreadPool
+   ScheduledExecutor
+
+4.Executor 1: SingleThreadExecutor 
+   A single thread pool can be obtained by calling the static newSingleThreadExecutor() method of the Executors class. It is used to execute tasks sequentially.
+
+    Syntax:     ExecutorService executor = Executors.newSingleThreadExecutor();
+
+5.Executor 2: FixedThreadPool(n)
+   As the name indicates, it is a thread pool of a fixed number of threads. The tasks submitted to the executor are executed by the n threads and if there is more task they are stored 
+   on a LinkedBlockingQueue. It uses Blocking Queue.
+
+   Syntax:    ExecutorService fixedPool = Executors.newFixedThreadPool(2);
+
+6.Executor 3: CachedThreadPool
+    Creates a thread pool that creates new threads as needed, but will reuse previously constructed threads when they are available. Calls to execute will reuse previously 
+     constructed threads if available. If no existing thread is available, a new thread will be created and added to the pool. It uses a SynchronousQueue queue.
+
+          ExecutorService executorService = Executors.newCachedThreadPool();
+
+7.There are two types of constructors of SynchronousQueue which is based on two different access policy:
+    1. SynchronousQueue(): In this, if multiple threads are waiting then these threads are granted access randomly or unspecified manner, this is called no fair policy.
+    2. SynchronousQueue(boolean fair): In this, if multiple threads are waiting then these threads are granted access in FIFO(first in first out) manner.
+
+8.Executor 4: ScheduledExecutor
+   Scheduled executors are based on the interface ScheduledExecutorService which extends the ExecutorService interface. This executor is used when we have a task that needs
+   to be run at regular intervals or if we wish to delay a certain task.
+
+   ScheduledExecutorService scheduledExecService = Executors.newScheduledThreadPool(1);
+
+   The tasks can be scheduled using either of the two methods:
+   scheduleAtFixedRate: Executes the task with a fixed interval, irrespective of when the previous task ended.
+   scheduleWithFixedDelay: This will start the delay countdown only after the current task completes.
+
+   Syntax:    scheduledExecService.scheduleAtFixedRate(Runnable command, long initialDelay, long period, TimeUnit unit)
+                  scheduledExecService.scheduleWithFixedDelay(Runnable command, long initialDelay, long period, TimeUnit unit)
+
+9.Future Object-
+    The result of the task submitted for execution to an executor can be accessed using the java.util.concurrent.The future object returned by the executor.
+     Future can be thought of as a promise made to the caller by the executor. The future interface is mainly used to get the results of Callable results. whenever the task 
+     execution is completed, it is set in this Future object by the executor.
+     
+     Syntax: Future<String> result = executorService.submit(callableTask);
+
+10.The executor framework is an implementation of the Producer-Consumer pattern.
