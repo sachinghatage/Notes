@@ -1,0 +1,53 @@
+					Core Java							
+
+1.switch statement:
+This is used when we want to test various values for a single variable.
+we can also write case1:case2:case3: in one line.
+
+2.break keyword:
+when break keyword is encountered in a loop,it immediately breaks the loop and resumes the statements following the loop.
+
+3.this vs super:
+both can be used anywhere in class except static areas.
+this is commonly used in constructors and setters.
+super is commonly used in method overriding.
+constructor can have super() or this() but not both.
+
+4.Method Overloading:
+compiler decides which method to be called based on no of parameters,method name,return type thats why it is compile time polymorphism
+object reference is used to decide.
+
+5.Method Overriding:
+At runtime it is decided which method is to be executed that is called Dynamic dispatch.
+runtime object is used to decide.
+
+6.Difference between bufferReader and Scanner?
+    BufferReader           Scanner
+1.Can read only string        1.can read both string and primitive 
+2.Buffer size - 8kb           2.Buffer size - 1kb
+3.Synchronized             3.Non-Synchronized
+
+Bitwise
+OR	1	0
+1	1	1
+0	1	0
+7.Bitwise operators(|,||,^)?                                
+Bitwise
+AND	1	0
+1	1	0
+0              0	0
+     If both are 1 then only 1  
+     if both are 0 then only 0
+Bitwise
+XOR	1	0
+1	0	1
+0	1	0
+      
+ If both are same then 0                       
+
+
+8.why java is not considered as 100% object oriented programming language?
+Primitive data types
+Static methods
+No multiple inheritance while using classes
+Final classes, which hinders the class for further extensions                                                                                                             
